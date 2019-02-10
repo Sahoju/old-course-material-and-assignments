@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 7, tehtävä 1</title>
+        <meta charset="utf-8" />
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+              integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+              crossorigin=""/>
+        
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+                integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+                crossorigin=""></script>
+        
+        <style type="text/css">
+            #map { height: 800px; width: 1024px; }
+        </style>
+    </head>
+    
+    <body>
+        <div id="map"></div>
+        
+        <script>
+            var map = L.map('map').setView([62.244050, 25.745716], 15);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY29udmljdGlvbiIsImEiOiJjam5pcnA5NGwwbXlwM3BwN2g3YW8xOHVkIn0.X7iND5PmA88wlXMNnDQ3vw', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets'
+            }).addTo(map);
+
+            var marker = L.marker([62.244050, 25.745716]).addTo(map);
+
+            // circle
+            var circle = L.circle([62.242925, 25.739016], {
+                color: '#f4ee42',
+                fillColor: '#f4ee42',
+                fillOpacity: 0.5,
+                radius: 250
+            }).addTo(map);
+
+            // square
+            var polygon = L.polygon([
+                [62.238979, 25.751781],
+                [62.238979, 25.755781],
+                [62.237079, 25.755781],
+                [62.237079, 25.751781]
+            ]).addTo(map);
+            
+            marker.bindPopup;
+            circle.bindPopup("Harjun EK");
+            polygon.bindPopup("MM-ralli - Kilpailukeskus");
+        </script>
+    </body>
+</html>

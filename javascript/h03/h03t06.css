@@ -1,0 +1,30 @@
+#box {
+    padding: 20px;
+    border: 2px dashed black;
+    background-color: #7da3e0;
+    width: 400px;
+    margin: auto;
+}
+
+input[type=submit] {
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    background-color: #255fbc;
+    color: #fff;
+    font-weight: bold;
+}
+
+#sandbox {
+    background-color: #fff;
+    padding: 20px;
+    border: 2px dashed black;
+    margin-top: 10px;
+    height: 100px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 5, tehtävä 2</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="h05t02.css" />
+    </head>
+    
+    <body>
+        <div id="container">
+            <h1>Tehtävälista</h1>
+            
+            <form id="addEntry">
+                <input type="text"> <input type="submit" value="Lisää">
+            </form>
+            <ul id="daishouri"></ul>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#addEntry').submit(function(e) {
+                    e.preventDefault();
+                    
+                    // the x to remove the list element
+                    let x = $('<span> x</span>').css('color', '#f00').on('click', function() {
+                        $(this).closest('li').remove();
+                    });
+                    
+                    // add a new li element, then add the span element with x in it
+                    $('#daishouri').append('<li>' + $('input[type=text]').val() + '</li>');
+                    $('#daishouri').children('li:last-child').append(x);
+                    
+                    // empty text field and give it focus
+                    $('input[type=text]').val('').focus();
+                });
+            });
+        </script>
+    </body>
+</html>

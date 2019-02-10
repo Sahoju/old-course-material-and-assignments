@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 3, tehtävä 6</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="h03t06.css" />
+    </head>
+    
+    <body>
+        <div id="box">
+            Valitse juhlaväri:<br/>
+            <select id="inputColor">
+                <option disabled selected value style="display:none;"></option>
+                <option value="#e07d7d">Punainen</option>
+                <option value="#7fe28e">Vihreä</option>
+                <option value="#7da3e0">Sininen</option>
+                <option value="#7adbd9">Syaani</option>
+                <option value="#dd7cdd">Magenta</option>
+                <option value="#dbd978">Keltainen</option>
+            </select><br/><br/>
+            Mikä juhla?<br/>
+            <input type="text" id="inputEvent"><br/><br/>
+            
+            <input type="submit" id="changeBg" value="Vaihda valittu taustaväri">
+            
+            <div id="sandbox">
+                <b>Tulosalue</b>
+                <p id="writtenColor"></p><br/>
+                <p id="writtenEvent"></p>
+            </div>
+        </div> <!-- #box -->
+        
+        <script>
+            let butan = document.getElementById('changeBg');
+            let inputColor = document.getElementById('inputColor');
+            let inputEvent = document.getElementById('inputEvent');
+            
+            butan.addEventListener('click', function() {
+                let sandbox = document.getElementById('sandbox');
+                let inputColor = document.getElementById('inputColor');
+                sandbox.style.backgroundColor = inputColor.value;
+            });
+            
+            inputColor.addEventListener('change', function() {
+                let writtenColor = document.getElementById('writtenColor');
+                writtenColor.innerHTML = "Valittu: " + this.value;
+            });
+            
+            inputEvent.addEventListener('keyup', function(e) {
+                let stuff = this.value;
+                let writtenEvent = document.getElementById('writtenEvent');
+                if (e.which >= 65 && e.which <= 90 || e.which >= 97 && e.which <= 122) {
+                    writtenEvent.innerHTML = this.value;
+                } else {
+                    this.value = this.value.slice(0, -1);
+                }
+            });
+        </script>
+    </body>
+</html>

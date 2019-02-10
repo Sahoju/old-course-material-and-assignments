@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 2, tehtävä 4</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+
+    <body>
+        <div id="box">
+            <h3>Vauhtilaskin</h3>
+            
+            <div id="left">
+                <p>Tunnit:</p>
+                <p>Minuutit:</p>
+                <p>Sekunnit:</p>
+                <p>Kilometrit:</p>
+            </div>
+            
+            <form>
+                <div id="right">
+                    <input type="text" id="hours" autofocus required><br/>
+                    <input type="text" id="minutes" required><br/>
+                    <input type="text" id="seconds" required><br/>
+                    <input type="text" id="kilometers" required><br/>
+                </div>
+            </form>
+
+            <input type="submit" value="Laske vauhdit" id="butan" onclick="newCalc(hours.value, minutes.value, seconds.value, kilometers.value)">
+
+            <div id="results"></div>
+        </div>
+        
+        <script>
+            class Vauhtilaskin {
+                constructor(h, min, s, km) {
+                    this.h = h;
+                    this.min = min;
+                    this.s = s;
+                    this.km = km;
+                }
+                
+                get kmhpace() {
+                    return this.calcKmhPace();
+                }
+                
+                get minkmpace() {
+                    return this.calcMinkmPace();
+                }
+                
+                calcKmhPace() {
+                    var hs = parseInt(this.h)+(parseInt(this.min)*60+parseInt(this.s))/3600;
+                    var result = this.km/hs;
+                    return result.toFixed(2);
+                }
+                
+                calcMinkmPace() {
+                    var mins = parseInt(this.h)*60 + parseInt(this.min) + parseInt(this.s)/60;
+                    var result = mins/this.km;
+                    return result.toFixed(2);
+                }
+            }
+            
+            function newCalc(h, min, s, km) {
+                var calc = new Vauhtilaskin(h, min, s, km);
+                output = document.getElementById("results");
+                
+                output.innerHTML = calc.kmhpace + " km/h<br/>";
+                output.innerHTML += calc.minkmpace + " min/km<br/>";
+            }
+        </script>
+    </body>
+</html>

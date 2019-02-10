@@ -1,0 +1,20 @@
+<title>Harjoitus 2, tehtävä 1</title>
+
+<form id="f">
+     <input type=text id="n1"><br>
+     <input type=text id="n2"><br>
+     <button type="button" onclick="tulostaSumma(f.n1.value, f.n2.value)">Laske</button>
+</form>
+<div id="results"></div>
+
+<script>
+    function tulostaSumma(num1, num2) {
+        let output = document.getElementById("results");
+        result = laskeSumma(num1, num2);
+        output.innerHTML = "Summa = " + result;
+    }
+    
+    function laskeSumma(num1, num2) {
+        return parseInt(num1) + parseInt(num2);
+    }
+</script>

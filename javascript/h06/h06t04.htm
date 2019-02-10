@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 6, tehtävä 4</title>
+        <meta charset="utf-8" />
+    </head>
+    
+    <body onload="drawToCanvas(100)">
+        <form action="#" oninput="z.value=a.value; drawToCanvas(a.value)">
+            Säädä nestepinnan korkeus<br/>
+            <output id="z" name="z" for="a">100</output> cm<br/>
+            0 cm<input type="range" id="a" value="100" min="0" max="200"> 200 cm<br/>
+        </form>
+        
+        <div>
+            <canvas id="myCanvas" width="800" height="400" style="border:1px solid #000;"></canvas>
+        </div>
+        
+        <script>
+            function drawToCanvas(depth) {
+                let canvas = document.getElementById("myCanvas");
+                let ctx = canvas.getContext("2d");
+                
+                ctx.clearRect(0,0,800,400);
+                
+                let alkukulma = Math.PI/4;
+                ctx.fillStyle = "#00f";
+                
+                ctx.beginPath();
+                ctx.arc(400, 200, 200, Math.PI/2, Math.PI); // alkukulma, Math.PI - alkukulma
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+            }
+        </script>
+    </body>
+</html>

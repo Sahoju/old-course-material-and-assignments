@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 8, tehtävä 6</title>
+        <meta charset="utf-8" />
+        <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+        <style>
+            * {width: 400px; margin: auto}
+            
+            .box {
+                border: 1px dashed #000; padding: 15px; background-color: #adbed8;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="root" class="box"></div>
+        
+        <script type="text/babel">
+            class Autolaskuri extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { values: [0,0] };
+                    this.onImageClicked.bind(this);
+                }
+                
+                onImageClicked(car) {
+                    this.state.values[car]++;
+                    this.setState(this.state.values);
+                }
+                
+                render() {
+                    return(
+                        <div>
+                            <table>
+                                <tbody>
+                                    <tr><td>Lada: <b>{this.state.values[0]}</b></td><td></td></tr>
+                                    <tr><td><img src="http://car-from-uk.com/ebay/carphotos/full/ebay147728543425509.jpg" width="200" height="160" onClick={this.onImageClicked.bind(this, 0)} /></td></tr>
+                                    <tr><td>Tesla: <b>{this.state.values[1]}</b></td></tr>
+                                    <tr><td><img src="https://specials-images.forbesimg.com/imageserve/42907738/960x0.jpg?fit=scale" width="200" height="160" onClick={this.onImageClicked.bind(this, 1)}/></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <Autolaskuri />,
+                document.getElementById('root')
+            );
+        </script>
+    </body>
+</html>

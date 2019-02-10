@@ -1,0 +1,4 @@
+Jussi;24;L4929;Script Programming,UI Ohjelmointi,Astronomian perusteet
+Jussi;19;G8194;Mediaprojekti,Digitaalinen video ja audio,Johtaminen
+Cthulhu;seniori;C1928;Maan meret,Astronomian perusteet,Hypersomnian hoito
+Romulus;muinainen;N6666;Muinaisen Rooman historia,Johtaminen

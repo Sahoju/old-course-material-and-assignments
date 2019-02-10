@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Harjoitus 7, tehtävä 3</title>
+        <meta charset="utf-8" />
+    </head>
+    
+    <body>
+        <input type="submit" id="ford" value="Ford" onclick="addcar(this.id)">
+        <input type="submit" id="opel" value="Opel" onclick="addcar(this.id)">
+        <input type="submit" id="toyota" value="Toyota" onclick="addcar(this.id)">
+        <input type="submit" id="zero" value="Nollaa" onclick="zero()">
+        <canvas id="chartCars" width="400" height="400"></canvas>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+        <script>
+            let ford = 0;
+            let opel = 0;
+            let toyota = 0;
+            let chart = drawchart();
+            
+            function drawchart() {
+                var ctx = document.getElementById("chartCars").getContext('2d');
+                var chart = new Chart(ctx, {
+                    // The type of chart we want to create
+                    type: 'bar',
+
+                    // The data for our dataset
+                    data: {
+                        labels: ["Ford", "Opel", "Toyota"],
+                        datasets: [{
+                            label: "Lukumäärä (kpl)",
+                            data: [ford, opel, toyota],
+                            backgroundColor: [
+                                '#000',
+                                '#888',
+                                '#ccc'
+                            ]
+                        }]
+                    },
+
+                    // Configuration options go here
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Autojen lukumäärät'
+                        },
+                        // hides the colored label at the top
+                        legend: {
+                            display: false
+                        },
+                        responsive: false,
+                        scales: {
+                            yAxes: [{
+                                barThickness: 53,
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }],
+                            xAxes: [{
+                                barPercentage: 0.9
+                            }]
+                        }
+                    }
+                });
+                
+                return chart;
+            }
+            
+            function addcar(pressedButton) {
+                switch(pressedButton) {
+                    case "ford": ford++; break;
+                    case "opel": opel++; break;
+                    case "toyota": toyota++;
+                }
+                chart.data.datasets[0].data = [ford, opel, toyota];
+                chart.update();
+            }
+            
+            function zero() {
+                ford = 0;
+                opel = 0;
+                toyota = 0;
+                
+                chart.data.datasets[0].data = [ford, opel, toyota];
+                chart.update();
+            }
+        </script>
+    </body>
+</html>

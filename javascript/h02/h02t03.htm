@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 2, tehtävä 3</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h2>Taulukon [11, 22, 33, 44] läpikäyntiä</h2>
+        <p>tulostamista ja keskeisten suureiden laskemista lambda-funktioilla</p>
+        <hr>
+        <div id="results"></div>
+        
+        <script>
+            function writeResults() {
+                const array = [11,22,33,44];
+                const output = document.getElementById("results");
+                const reducer = (accumulator, currentValue) => accumulator + currentValue;
+                
+                let arrayCount = (arr) => { return array.length; };
+                let arraySum = (arr) => { return arr.reduce(reducer); };
+                let arrayAvg = (sum, count) => { return sum/count; };
+                
+                let printArray = (arr, count) => {
+                    let gstring = "Alkiot ovat:<br/>";
+                    for(let i = 0; i < count; i++) {
+                        gstring += "<br/>taulukko[" + i + "] = " + arr[i];
+                    }
+                    return gstring;
+                }
+                
+                let sisalto = `
+                    ${printArray(array, arrayCount(array))}
+                    <br/><br/>Lukumäärä on: ${arrayCount(array)}
+                    <br/>Summa on: ${arraySum(array)}
+                    <br/>Keskiarvo on: ${arrayAvg(arraySum(array), arrayCount(array))}
+                `;
+                
+                output.innerHTML = sisalto;
+            }
+            
+            window.onload = writeResults();
+        </script>
+    </body>
+</html>

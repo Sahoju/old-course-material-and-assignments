@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+#control {
+    margin: auto;
+    width: 100%;
+}
+
+.inline, .pgInline, #play {
+    float: left;
+    background-color: #8db3ef;
+    text-align: center;
+    padding-top: 12px;
+    height: 50px;
+    vertical-align: bottom;
+}
+
+.inline {
+    width: 24.5%;
+    border-right: 2px solid #b8cded;
+}
+
+.pgInline {
+    width: 49.5%;
+    border-right: 2px solid #b8cded;
+    border-bottom: 2px solid #b8cded;
+}
+
+#play {
+    width: 100%;
+    padding-top: 20px;
+    height: 42px;
+    margin-bottom: 50px;
+}
+
+#playground {
+    border: 5px dashed black;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+}

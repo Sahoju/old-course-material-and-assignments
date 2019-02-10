@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 1, tehtävä 7</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    
+    <body>
+        <div id="top">
+        
+        </div> <!-- header -->
+        
+        <div id="page">
+            <form action="#">
+            <div class="header">
+                Ilmiantaja
+            </div>
+            <div class="content">
+                Nimi:<br/>
+                <input type="text" id="fullname" placeholder="Kirjoita nimesi tähän" autofocus required><br/>
+                Puhelinnumero:<br/>
+                <input type="text" id="phonenum" placeholder="Puhelinnumero muodossa 040 xxx xxx x" pattern="040\s[0-9][0-9][0-9]\s[0-9][0-9][0-9]\s[0-9]" required><br/>
+                Email:<br/>
+                <input type="email" id="email" placeholder="Kirjoita sähköpostiosoitteesi tähän" required>
+            </div>
+            
+            <div class="header">
+                Ilmoituksen URL
+            </div>
+            <div class="content">
+                Myynti-ilmoituksen URL:<br/>
+                <input type="url" name="fullname" placeholder="Kopioi Jokakodin/Etuoven kohde-URL tähän" required>
+            </div>
+            <div class="header">
+                Asunnon pyyntihinta
+            </div>
+            <div class="content centercontent">
+                <p id="curAmount"></p>
+                1 kEUR<input type="range" min="1" max="500" value="250" id="pyyntihinta">500 kEUR
+            </div>
+            <div class="header">
+                Arvioimani hinta
+            </div>
+            <div class="content centercontent">
+                <p id="curAmount2"></p>
+                1 kEUR<input type="range" min="1" max="500" value="250" id="arvioitu">500 kEUR
+            </div>
+            <div class="header">
+                Suosikkiasuinalueeni
+            </div>
+            <div class="content">
+                <input id="last" list="areas" placeholder="Tuplaklikkaa!">
+                <datalist id="areas">
+                    <option value="Aittorinne">
+                    <option value="Keskusta">
+                    <option value="Kortepohja">
+                    <option value="Kuokkala">
+                    <option value="Roninmäentie">
+                </datalist>
+            </div>
+            <input id="butan" type="submit" value="Ilmianna asunto!">
+            
+            </form>
+        </div> <!-- page -->
+            
+        
+        <div id="footer">
+            © 2014 Q&D Software Ltd. Kaikki oikeudet pidätetään.
+        </div>
+        
+        <script>
+            var slider1 = document.getElementById("pyyntihinta");
+            var output1 = document.getElementById("curAmount");
+            var slider2 = document.getElementById("arvioitu");
+            var output2 = document.getElementById("curAmount2");
+            output1.innerHTML = slider1.value + " kEUR"; // Display the default slider value
+            output2.innerHTML = slider2.value + " kEUR";
+            // Update the current slider value each time the slider handle is dragged
+            slider1.oninput = function() {
+                output1.innerHTML = this.value + " kEUR";
+            }
+            slider2.oninput = function() {
+                output2.innerHTML = this.value + " kEUR";
+            }
+            
+            /*
+            var fullname = document.getElementById("fullname");
+            var phonenum = document.getElementById("phonenum");
+            var email = document.getElementById("email");
+            
+            fullname.onclick = function() {
+                fullname.classList.remove("red");
+            }
+            phonenum.onclick = function() {
+                phonenum.classList.remove("red");
+            }
+            email.onclick = function() {
+                email.classList.remove("red");
+            }
+            
+            var butan = document.getElementById("butan");
+            var re = /040\s[0-9][0-9][0-9]\s[0-9][0-9][0-9]\s[0-9]/;
+            
+            butan.onclick = function() {
+                if(fullname.value == "") {
+                    fullname.classList.add("red");
+                }
+                if(phonenum.value == "") {
+                    phonenum.classList.add("red");
+                }
+                else if(re.test(phonenum.value) == false) {
+                    phonenum.value = "";
+                    phonenum.classList.add("red");
+                }
+                if(email.value == "") {
+                    email.classList.add("red");
+                }
+            }
+            */
+        </script>
+    </body>
+</html>

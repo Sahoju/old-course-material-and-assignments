@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 3, tehtävä 2</title>
+    </head>
+    
+    <body>
+        <a href="#" data-link="https://i.imgur.com/r4XMZDZ.png">Kuva 1</a> | <a href="#" data-link="https://i.imgur.com/MOrWUvk.png">Kuva 2</a> | <a href="#" data-link="https://i.imgur.com/EafykFA.png">Kuva 3</a> | <a href="#" data-link="https://i.imgur.com/zWbDHN3.png">Kuva 4</a> | <a href="#" data-link="https://i.imgur.com/ebOEP1o.png">Kuva 5</a> | <a href="#" data-link="https://i.imgur.com/BwFXtjO.png">Kuva 6</a> | <a href="#" data-link="https://i.imgur.com/MxaohE3.png">Kuva 7</a> | <a href="#" data-link="https://i.imgur.com/pdMwyvQ.png">Kuva 8</a> | <a href="#" data-link="https://i.imgur.com/s8QOrth.png">Kuva 9</a> | <a href="#" data-link="https://i.imgur.com/3weDWAX.png">Kuva 10</a><br/>
+        <a href="#" data-link="https://i.imgur.com/3weDWAX.png">Kuva 11</a> | <a href="#" data-link="https://i.imgur.com/eZU2Xls.png">Kuva 12</a> | <a href="#" data-link="https://i.imgur.com/HXBV14Z.png">Kuva 13</a> | <a href="#" data-link="https://i.imgur.com/Bm6UQKI.png">Kuva 14</a> | <a href="#" data-link="https://i.imgur.com/wl5MUJv.png">Kuva 15</a> | <a href="#" data-link="https://i.imgur.com/77EYcqi.png">Kuva 16</a> | <a href="#" data-link="https://i.imgur.com/NZxnqMa.png">Kuva 17</a> | <a href="#" data-link="https://i.imgur.com/wJo9eX2.png">Kuva 18</a> | <a href="#" data-link="https://i.imgur.com/pPqCxyH.png">Kuva 19</a> | <a href="#" data-link="https://i.imgur.com/rUgNsAC.png">Kuva 20</a><br/>
+        <a href="#" data-link="https://i.imgur.com/re6cIjw.png">Kuva 21</a> | <a href="#" data-link="https://i.imgur.com/MFiWwg1.png">Kuva 22</a> | <a href="#" data-link="https://i.imgur.com/pBtRKJe.png">Kuva 23</a> | <a href="#" data-link="https://i.imgur.com/WRxqmqv.png">Kuva 24</a> | <a href="#" data-link="https://i.imgur.com/jvE7Juh.png">Kuva 25</a><br/>
+        <hr/>
+        <img src="https://i.imgur.com/r4XMZDZ.png" id='pic' />
+        
+        <script>
+            let a = document.getElementsByTagName('a');
+			for(let i = 0; i < a.length; i++) {
+                /*
+				if(i < 10) {
+					a[i].setAttribute('id', 'a0' + i);
+				} else {
+					a[i].setAttribute('id', 'a' + i);
+				}
+                */
+				a[i].setAttribute('onclick', 'changePic(this)');
+			}
+			
+			function changePic(elem) {
+				let url = elem.dataset.link;
+				let pic = document.getElementById('pic');
+				pic.src = url;
+				return false;
+			}
+        </script>
+    </body>
+</html>

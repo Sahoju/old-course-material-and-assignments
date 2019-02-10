@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 5, tehtävä 5</title>
+        <meta charset="utf-8" />
+    </head>
+    
+    <body>
+        <form id="search">
+            <input list="names" id="searchInput">
+            <datalist id="names"></datalist>
+            <input type="submit">
+        </form>
+        
+        <div id="results"></div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="jquery-ui-1.12.1.custom/jquery-ui-min.js"></script>
+        
+        <script>
+            /* Houses- JavaScript */
+            $(document).ready(function(){
+                $('#searchInput').on('keyup', function() {
+                    $.ajax({
+                        url: 'ajax-suggest.php?q=' + $('#searchInput').val(),
+                        cache: false
+                    }).done(function(data) {
+                        console.log("success");
+                        let names = data.split('\t');
+                        $('#names').empty();
+                        $.each(names, function(index, name) {
+                            $('#names').append('<option>' + name + '</option>');
+                        });
+                        console.log(data);
+                    }).fail(function() {
+                        console.log("But how? The file is in the same directory as this!");
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

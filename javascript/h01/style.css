@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+input[type=text], input[type=email], input[type=url], #last {
+    border: 1px solid #bbb;
+    border-radius: 2px;
+    width: 100%;
+    box-shadow: inset 1px 1px #666;
+    padding: 2px 2px 2px 5px;
+    margin: 5px auto 5px auto;
+}
+
+::placeholder {
+    color:cornflowerblue;
+}
+
+.red::placeholder {
+    color: red;
+}
+
+input[type=submit] {
+    background-color: cadetblue;
+    color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 20px;
+    font-family: Leelawadee, Arial;
+}
+
+#page {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px 15px 20px 15px;
+    width: 450px;
+    margin: auto;
+    background-color: #444;
+}
+
+.content {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 20px 10px 10px;
+    background-color: #ededed;
+}
+
+.centercontent {
+    text-align: center;
+}
+
+.header {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    width: 95%;
+    margin: auto;
+    background-color: cadetblue;
+    position: relative;
+    top: 15px;
+    color: #fff;
+    font-family: Leelawadee, Arial;
+}
+
+#footer {
+    text-align: center;
+}

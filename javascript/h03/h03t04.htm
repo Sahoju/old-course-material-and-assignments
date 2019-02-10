@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Harjoitus 3, tehtävä 4</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="h03t04.css" />
+    </head>
+    
+    <body>
+        <div id="inputs">
+            <div class="aLabel">T1</div>
+            <div class="aLabel">T2</div>
+            <div class="aLabel">T3</div>
+            <div class="aLabel">T4</div>
+            <div class="aScore"><input type='text' class="scores"></div>
+            <div class="aScore"><input type='text' class="scores"></div>
+            <div class="aScore"><input type='text' class="scores"></div>
+            <div class="aScore"><input type='text' class="scores"></div>
+        </div>
+        
+        <div id="results"></div>
+        
+        <script>
+            let scoreFields = document.getElementsByClassName('scores');
+            
+            for(let i = 0; i < scoreFields.length; i++) {
+                scoreFields[i].addEventListener('blur', function() {
+                    grader(scoreFields, parseInt(this.value));
+                });
+            }
+            
+            function grader(scoreFields, num) {
+                let results = document.getElementById('results');
+                let grade = 0;
+                let sum = 0;
+                
+                if (num < 0 || num > 6) {
+                    results.innerHTML = "VIRHE!";
+                    return;
+                } else if (num == null) {
+                    results.innerHTML = '';
+                    return;
+                }
+                
+                for(let i = 0; i < scoreFields.length; i++) {
+                    if (scoreFields[i].value != '') {
+                        sum += parseInt(scoreFields[i].value);
+                    }
+                }
+                
+                if (sum < 13) {
+                    grade = 0;
+                } else if (sum < 16) {
+                    grade = 1;
+                } else if (sum < 18) {
+                    grade = 2;
+                } else if (sum < 20) {
+                    grade = 3;
+                } else if (sum < 22) {
+                    grade = 4;
+                } else if (sum < 25) {
+                    grade = 5;
+                }
+                
+                results.innerHTML = "Pistemäärä: " + sum + "<br/>" + 
+                                    "Arvosana: " + grade;
+            }
+        </script>
+        
+    </body>
+</html>
